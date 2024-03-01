@@ -1,0 +1,23 @@
+team name : 
+KingOtto
+team members : 
+Georgios Sapountzakis
+Timon Gross
+Christos Siafarikas
+
+
+On the project we are training a neural network so as to recognise images of leaves of fruits. 
+We use the dataset given , including some thousands of images of fruit leaves to train the network with.
+There is no automatic validation set given so the first challenge we face is  creating one , and we do so by
+spliting the dataset to 80% training set and 20% validation set . In order to do so we use bash commands.
+Afterwards we do some checks to see if the split was alright and then we start creating our model.We use
+data augmentation as shown in the laboratories but not too much because after some tries we discovered that 
+less data augmentation gives better results . Then considering the actual neural model , we first use the vgg16 
+pretrained model and on top of it we add a few layers, namely a flatten layer and 2 pairs of dropout,dense layers.
+We tried other models , with different combinations of layers and different types of pooling layers but in some cases
+the results were worse and in some others the model could not compile due to dimention uncompatibility.
+We may or may nt use early stopping since it does not make that of a difference in our experience.
+Afterwards we unfreeze some of the layers of the pretrained vgg16 model and train the model again with a very low
+learning rate so as to fine tune it . To train the model we use around 30 epochs , and tried different batch sizes.
+In the end after a procedure of trial and error we conclude on the parameters that had the best final results ,
+giving the best model .
